@@ -12,3 +12,18 @@ function $_GET(param) {
 	}
 	return vars;
 }
+
+function isset(param) {
+	if (param.indexof('$_GET') > 0) {
+		var regExp = /\$_GET\(.?([^"']+).?\)/;
+		var getUrlParam = window.location.href.match(regExp)[1];
+		
+		if (getUrlParam != null) {
+			return true;
+		}
+		
+		if (getUrlParam == null) {
+			return false;
+		}
+	}
+}
